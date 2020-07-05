@@ -17,16 +17,17 @@
     --background-floating: #18191c;
     --background-mobile-primary: #36393f;
     --background-mobile-secondary: #2f3136;
-    --background-modifier-hover: rgb(79,84,92);
-    --background-modifier-active: rgba(79,84,92,0.24);
-    --background-modifier-selected: rgba(79,84,92,0.32);
-    --background-modifier-accent: hsla(0,0%,100%,0.06);
-    --background-message-hover: rgba(4,4,5,0.07);
+    --background-modifier-hover: rgb(79, 84, 92);
+    --background-modifier-active: rgba(79, 84, 92, 0.24);
+    --background-modifier-selected: rgba(79, 84, 92, 0.32);
+    --background-modifier-accent: hsla(0, 0%, 100%, 0.06);
+    --background-message-hover: rgba(4, 4, 5, 0.07);
     --logo-primary: #fff;
     --focus-primary: #00b0f4;
     --focus-secondary: #43b581;
     --channel-textarea-background: #40444b;
     --activity-card-background: #202225;
+    --user-online: rgb(67, 181, 129);
 }
 
 * {
@@ -41,11 +42,8 @@
     height: 100vh;
     display: grid;
     grid-template-columns: 72px 240px auto 240px;
-	grid-template-rows: 48px auto 54px;
-	grid-template-areas:
-		"side server header header"
-		"side chanel chat contact"
-		"side user chat contact";
+    grid-template-rows: 48px auto 54px;
+    grid-template-areas: "side server header header" "side chanel chat contact" "side user chat contact";
 }
 
 #side {
@@ -57,7 +55,7 @@
     background-color: var(--background-tertiary);
 }
 
-::-webkit-scrollbar {
+#side::-webkit-scrollbar {
     width: 0px;
 }
 
@@ -90,7 +88,6 @@
     justify-content: space-between;
 }
 
-
 .header-left {
     display: flex;
     flex-direction: row;
@@ -120,13 +117,84 @@
     color: white;
     vertical-align: middle;
 }
+
 #chanel {
     grid-area: chanel;
     background-color: var(--background-secondary);
+    overflow-y: scroll;
+}
+
+#chanel::-webkit-scrollbar {
+    width: 3px;
+}
+
+#chanel::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+#chanel::-webkit-scrollbar-thumb {
+    background: var(--background-tertiary);
+    border-radius: 4px;
+}
+
+#chanel::-webkit-scrollbar-thumb:hover {
+    background: var(--background-tertiary);
+}
+
+.chanel-item {
+    color: var(--text-muted);
+    font-family: Whitney;
+    font-size: 13px;
+    margin-top: 15px;
+    margin-right: 3px;
+    align-items: center;
+}
+
+.chanel-item>div {
+    padding: 5px;
+    margin-left: 10px;
+    margin: 2px;
+    margin-bottom: 2px;
+}
+
+.chanel-item>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chanel-item-active {
+    background-color: var(--background-modifier-selected);
+    border-radius: 4px;
+    color: white
+}
+
+.chanel-item>div:hover {
+    background-color: var(--background-modifier-hover);
+    border-radius: 4px;
+}
+
+.chanel-item>div:first-child {
+    text-transform: uppercase;
+}
+
+.hash {
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hash svg {
+    width: 20px;
+    height: 20px;
 }
 
 #chat {
-    grid-area: chat ;
+    grid-area: chat;
     background-color: var(--background-primary);
 }
 
@@ -138,6 +206,66 @@
 #user {
     grid-area: user;
     background-color: var(--background-secondary-alt);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.user-info {
+    flex-grow: 2;
+}
+
+.user-icons {
+    display: flex;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.user-avatar>img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.user-avatar::after {
+    background-color: var(--user-online);
+    width: 10px;
+    height: 10px;
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    border-radius: 50%;
+    border: 3px solid var(--background-secondary-alt);
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+}
+
+.user-id {
+    font-size: 12px;
+    color: var(--header-secondary);
+}
+
+.icon {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.icon>svg {
+    width: 20px;
+    height: 20px;
+    color: var(--interactive-normal);
 }
 
 .start {
@@ -189,6 +317,7 @@
     width: 100%;
     text-align: center;
 }
+
 .server-selected {
     position: absolute;
     background-color: blue;
@@ -198,7 +327,6 @@
     border-radius: 16px;
     background-color: var(--focus-secondary);
 }
-
 
 .divider {
     width: 32px;
