@@ -125,17 +125,17 @@
 }
 
 #chanel::-webkit-scrollbar {
-    width: 3px;
+    width: 4px;
 }
 
 #chanel::-webkit-scrollbar-track {
     background: transparent;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 
 #chanel::-webkit-scrollbar-thumb {
     background: var(--background-tertiary);
-    border-radius: 4px;
+    border-radius: 2px;
 }
 
 #chanel::-webkit-scrollbar-thumb:hover {
@@ -201,6 +201,75 @@
 #contact {
     grid-area: contact;
     background-color: var(--background-secondary);
+    overflow-y: scroll;
+}
+
+#contact::-webkit-scrollbar {
+    width: 4px;
+}
+
+#contact::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+#contact::-webkit-scrollbar-thumb {
+    background: var(--background-tertiary);
+    border-radius: 4px;
+}
+
+#contact::-webkit-scrollbar-thumb:hover {
+    background: var(--background-tertiary);
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: row;
+    margin: 1px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 4px;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 42px;
+}
+
+.constact-name {
+    color: var(--interactive-active);
+    font-size: 16px;
+}
+
+.contact-status {
+    color: var(--channels-default);
+    font-size: 12px;
+}
+
+.contact-status-header {
+    font-size: 12px;
+    color: var(--channels-default);
+    text-transform: uppercase;
+    padding-top: 24px;
+    padding-left: 16px;
+    padding-right: 8px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+}
+
+.contact-avatar {
+    margin-right: 8px;
+}
+
+.contact-avatar>img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
 }
 
 #user {
